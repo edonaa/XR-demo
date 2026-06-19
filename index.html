@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XR-Based Damage Visualization</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+
+<body>
+<a-scene background="color: #ECECEC" vr-mode-ui="enabled: true">
+
+  <!-- Camera -->
+  <a-entity 
+    camera 
+    look-controls 
+    wasd-controls
+    position="0 1.6 4">
+  </a-entity>
+
+  <!-- Light -->
+  <a-light type="ambient" intensity="0.7"></a-light>
+  <a-light type="directional" position="2 4 3" intensity="0.8"></a-light>
+
+  <!-- 3D façade model -->
+  <a-entity 
+    gltf-model="model.glb"
+    position="0 0 -3"
+    scale="1 1 0.5"
+    rotation="0 0 0">
+  </a-entity>
+
+  <!-- Damage overlay as transparent plane -->
+  <a-plane
+    src="crack_overlay.png"
+    position="1.2 1.1 -2.95"
+    rotation="0 0 0"
+    width="2.0"
+    height="1.5"
+    material="transparent: true; opacity: 0.75; side: double; depthTest: false">
+  </a-plane>
+
+</a-scene>
+</body>
+</html>
